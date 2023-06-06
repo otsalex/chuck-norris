@@ -11,3 +11,286 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.navbar{
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+}
+
+.navbar-element{
+  padding: 10px 10px;
+
+  border-radius: 1em;
+
+  
+}
+a{
+  text-decoration: none;
+  color: black;
+  margin-right: 15px;
+}
+
+.table{
+  position: relative;
+  width: 800px;
+  padding-top: 0;
+  margin-bottom: 110px;
+  margin: 5em auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+  border-collapse: collapse;
+}
+.table-head{
+  width: 100%;
+  top: 0;
+  left: 0;
+  font-size: 18px;
+  color: #fff;
+  line-height: 1.4;
+  background-color: #6c7ae0;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+.table-head-title{
+  text-align: left;
+  padding: 0;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  padding-left: 15px;
+}
+.table-row{
+  width: 100%;
+  position: relative;
+}
+.table-data-field{
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 15px;
+}
+.info-box{
+  position: relative;
+  display: grid;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: max-content;
+  background-color: #FFFFFF;
+  width: 300px;
+  margin:  auto;
+  border-radius: 1.5em;
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+  }
+
+  .form-control {
+
+    width: 500px;
+    color: rgb(38, 50, 56);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background: rgba(136, 126, 126, 0.04);
+    padding: 10px 20px;
+    
+    border-radius: 20px;
+    
+    border: 2px solid rgba(0, 0, 0, 0.02);
+    
+    text-align: center;
+    margin-bottom: 10%;
+    font-family: 'Ubuntu', sans-serif;
+    }
+    
+    .un:focus, .pass:focus {
+      border: 2px solid rgba(0, 0, 0, 0.18) !important;
+      
+    }
+    
+    .formBtn {
+      cursor: pointer;
+      border-radius: 5em;
+      color: #fff;
+      background: linear-gradient(to right, #9C27B0, #E040FB);
+      border: 0;
+    
+      padding: 10px 5px;
+    
+      font-family: 'Ubuntu', sans-serif;
+      font-size: 13px;
+      box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+      text-align: center;
+      margin-top: 15px;
+      margin-left: 5px;
+      margin-right: 5px;
+      
+      margin: 15px 5px;
+      width: 20%;
+      min-width: 70px;
+      max-width: 100px;
+      position: relative;
+      
+    }
+    
+    .form-header{
+      text-align: center;
+    }
+    form{
+      width: 100%;
+      position: relative;
+      display:grid;
+      justify-items: center;
+    }
+    
+    .header {
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: calc(10px + 2vmin);
+      background-color: whitesmoke;
+      top: 0;
+      width: 100%;
+      height: 4rem;
+      box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+      margin-bottom: 25px;
+    }
+    
+    .footer{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: calc(10px + 2vmin);
+      background-color: #AF6666;
+    
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 2.5rem; 
+      box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+      background-color: whitesmoke;
+    }
+
+    .formBtn {
+      cursor: pointer;
+      border-radius: 5em;
+      color: #fff;
+      background: linear-gradient(to right, #9C27B0, #E040FB);
+      border: 0;
+    
+      padding: 10px 5px;
+    
+      font-family: 'Ubuntu', sans-serif;
+      font-size: 13px;
+      box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+      text-align: center;
+      margin-top: 15px;
+      margin-left: 5px;
+      margin-right: 5px;
+      
+      margin: 15px 5px;
+      width: 20%;
+      min-width: 70px;
+      max-width: 100px;
+      position: relative;
+      
+    }
+    
+
+
+    .button-23 {
+      margin: 10px;
+      background-color: #FFFFFF;
+      border: 1px solid #222222;
+      border-radius: 8px;
+      box-sizing: border-box;
+      color: #222222;
+      cursor: pointer;
+      display: inline-block;
+      font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 20px;
+      outline: none;
+      padding: 13px 23px;
+      position: relative;
+      text-align: center;
+      text-decoration: none;
+      touch-action: manipulation;
+      transition: box-shadow .2s,-ms-transform .1s,-webkit-transform .1s,transform .1s;
+      user-select: none;
+      -webkit-user-select: none;
+      width: auto;
+    }
+    
+    .button-23:focus-visible {
+      box-shadow: #222222 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
+      transition: box-shadow .2s;
+    }
+    
+    .button-23:active {
+      background-color: #F7F7F7;
+      border-color: #000000;
+      transform: scale(.96);
+    }
+    
+    .button-23:disabled {
+      border-color: #DDDDDD;
+      color: #DDDDDD;
+      cursor: not-allowed;
+      opacity: 1;
+    }
+
+    select{
+      text-align: center;
+      margin: auto;
+      width: 100px;
+      border: 1px solid #E8EAED;
+      border-radius: 5px;
+      background: white;
+      box-shadow: #222222 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 16px;
+
+    }
+    img{
+      margin: auto;
+    }
+    textarea {
+      width: 300px;
+      height: 100px;
+      display: block;
+     }
+    .textarea-wrapper{
+
+      position: relative;
+      display: grid;
+      padding-top: 15px;
+      padding-bottom: 10px;
+      padding-left: 10px;
+      padding-right: 10px;
+      height: max-content;
+      background-color: #FFFFFF;
+      margin:  auto;
+      border-radius: 1.5em;
+      box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+    }
+    th{
+      min-width: 100px;
+    }
+
+    .table-head-title-main{
+      width: 550px;
+      text-align: left;
+      padding: 0;
+      padding-top: 18px;
+      padding-bottom: 18px;
+      padding-left: 15px;
+    }
+
+    
+  
