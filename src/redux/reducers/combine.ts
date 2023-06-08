@@ -1,8 +1,8 @@
-import { combineReducers } from '@reduxjs/toolkit';
-import jokeReducer from './jokeReducer';
+import { combineReducers } from "@reduxjs/toolkit";
+import jokeReducer from "./jokeReducer";
 
 const reducers = combineReducers({
-    jokes: jokeReducer
+  jokes: jokeReducer,
 });
 
 export default reducers;
