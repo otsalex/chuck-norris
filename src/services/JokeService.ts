@@ -9,9 +9,9 @@ export class JokeService
 
     constructor(){
         
-      const config: AxiosRequestConfig = {
-        baseURL: "https://api.chucknorris.io/jokes/"
-      };
+        const config: AxiosRequestConfig = {
+            baseURL: "https://api.chucknorris.io/jokes/"
+        };
 
       this.axios = Axios.create(config);
 
@@ -21,7 +21,6 @@ export class JokeService
             const response = await this.axios.get<IJoke>("random");
                 return response.data;
         } catch (e){
-            console.log('error: ', (e as Error).message);
             return e as Error;
         }
     }
@@ -31,7 +30,6 @@ export class JokeService
                 return response.data;
 
         } catch (e){
-            console.log('error: ', (e as Error).message);
             return e as Error;
         }
     }
@@ -41,7 +39,6 @@ export class JokeService
                 return response.data;
 
         } catch (e){
-            console.log('error: ', (e as Error).message);
             return e as Error;
         }
     }

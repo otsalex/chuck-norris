@@ -1,10 +1,6 @@
 
-
-// null is set as the default value here for state, because Redux will complain if state is undefined. 
-// You can set initial state here, but it is recommended on the Redux documentation to preload the state within the redux store. 
-
-import { IJoke } from "../../domain/IJoke";
-import { Action, ActionType } from "../actionTypes/actionTypes";
+import {IJoke} from "../../domain/IJoke";
+import {Action, ActionType} from "../actionTypes/actionTypes";
 
 interface State {
     savedJokes: IJoke[];
@@ -37,6 +33,20 @@ export default function jokeReducer(state: State = init, action: Action):State {
         return { ...state,
             savedJokes: state.savedJokes.filter(j => j.id !== action.payload),
         }
+        case ActionType.UPDATE_JOKE:
+            return {
+                ...state,
+                savedJokes: state.savedJokes.map((joke) => {
+                    if (joke.id === action.payload.id) {
+                        return ({
+                            ...joke,
+                            value: action.payload.value,
+                            category: action.payload.category
+                        })
+                    }
+                    return joke;
+                })
+            }
         default: 
             return state;
         }

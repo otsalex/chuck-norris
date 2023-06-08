@@ -15,84 +15,67 @@ const EditJoke = () => {
 
     const { savedJokes, categories } = useTypedSelector((state) => state.jokes);
 
-    const [values, setValues] = useState({
-        joke: {} as IJoke,
-        categories: categories,
-        chosenCategory: ""
-
-    });
-    
-    
     useEffect(() => {
-        // get the joke by id and set the state
+        let validId = false;
         savedJokes.forEach(joke => {
-            if(joke.id === id) setValues({categories: categories, joke: joke, chosenCategory: joke.category});
-        });
-    }, [id, savedJokes, categories])
-
-
-    const handleChange = (event: ChangeEvent<HTMLTextAreaElement> | ChangeEvent<HTMLSelectElement>) => {
-        event.preventDefault();
-        // if changing the joke value
-
-        // only change the chosenCategory when the target is correct
-        let category;
-        if(event.target.name === "category"){
-             category = event.target.value
-        } 
-        // else keep the old one
-        else{
-             category = values.chosenCategory;
-        }
-        setValues({ ...values,
-            joke: {
-                ...values.joke,
-                [event.target.name]: event.target.value
-            },
-            chosenCategory: category
-        });
+            if(joke.id === id){
+                validId = true;
+            }
+        })
+        if(!validId) navigate('../');
         
+      }, [id, navigate, savedJokes]);
+      
+    
 
+    const [joke, setJoke] = useState(savedJokes.find(j => j.id === id) as IJoke || {} as IJoke)
+    const [chosenCategory, setCategory] = useState(joke.category);
+    
+    const handleChange = (event: ChangeEvent<HTMLTextAreaElement> | ChangeEvent<HTMLSelectElement>) => {
+        
+        // deal with category changes
+        if(event.target.name === "category"){
+             setCategory(event.target.value);
+        }
+        // deal with text changes
+        setJoke({...joke, [event.target.name]: event.target.value})
         
     }
 
-
-    const onSubmit = async (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-        
-        event.preventDefault();
-
-        // delete existing joke
+    const onSave = async () => {
         dispatch({
-            type: ActionType.REMOVE_JOKE,
-            payload: values.joke.id 
+            type: ActionType.UPDATE_JOKE,
+            payload: joke
         });
-
-        // if just editing, replace the joke with a new one
-        if(event.currentTarget.name === 'save'){
-            dispatch({
-                type: ActionType.SAVE_JOKE_TO_FAVOURITES,
-                payload: values.joke 
-            });
-        }
         navigate("../favourites");
     }
 
+    const onDelete = async () => {
+
+        dispatch({
+            type: ActionType.REMOVE_JOKE,
+            payload: joke.id 
+        });
+        navigate("../favourites");
+    }
+
+
     return (
         <section className="form-box">
-        <form action="" method="post">
+        <form>
             <div className="textarea-wrapper" >
             <textarea
                 name='value'
-                value ={values.joke.value}
-                onChange={(e) => handleChange(e)}>
+                value ={joke.value}
+                onChange={handleChange}>
             </textarea>
             <br />
 
             <select 
-                value={values.chosenCategory} 
-                onChange={(event) => handleChange(event)}
+                value={chosenCategory} 
+                onChange={handleChange}
                 name='category'>
-                    {values.categories.map((cat, index) => 
+                    {categories.map((cat, index) => 
                     <option value={cat} key={index}>{cat}</option>
                     )}
             </select>
@@ -100,14 +83,16 @@ const EditJoke = () => {
             </div >
             <div >
                 <button 
-                    onClick={(e) => onSubmit(e)}
+                    onClick={onSave}
                     className="formBtn"
-                    name="save">
+                    name="save"
+                    type="button">
                         Save
                 </button>
                 <button 
-                    onClick={(e) => onSubmit(e)}
-                    className="formBtn">
+                    onClick={onDelete}
+                    className="formBtn"
+                    type="button">
                         Delete
                 </button>   
             </div>
