@@ -1,11 +1,18 @@
-import { type ChangeEvent, useEffect, useState } from "react";
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
+/* eslint-disable @typescript-eslint/consistent-type-assertions */
+import {
+  type ChangeEvent,
+  useEffect,
+  useState,
+  type ReactElement,
+} from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { type IJoke } from "../domain/IJoke";
 import { useTypedSelector } from "../hooks/useTypeSelector";
 import { useDispatch } from "react-redux";
 import { ActionType } from "../redux/actionTypes/actionTypes";
 
-const EditJoke = () => {
+const EditJoke = (): ReactElement => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -28,11 +35,11 @@ const EditJoke = () => {
 
   const handleChange = (
     event: ChangeEvent<HTMLTextAreaElement> | ChangeEvent<HTMLSelectElement>
-  ) => {
+  ): void => {
     setJoke({ ...joke, [event.target.name]: event.target.value });
   };
 
-  const onSave = async () => {
+  const onSave = (): void => {
     dispatch({
       type: ActionType.UPDATE_JOKE,
       payload: joke,
@@ -40,7 +47,7 @@ const EditJoke = () => {
     navigate("../favourites");
   };
 
-  const onDelete = async () => {
+  const onDelete = (): void => {
     dispatch({
       type: ActionType.REMOVE_JOKE,
       payload: joke.id,

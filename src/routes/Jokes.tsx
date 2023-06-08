@@ -1,20 +1,24 @@
-import { type ChangeEvent, useContext, useMemo, useState } from "react";
+/* eslint-disable @typescript-eslint/no-misused-promises */
+import {
+  type ChangeEvent,
+  useContext,
+  useMemo,
+  useState,
+  type ReactElement,
+} from "react";
 import { useDispatch } from "react-redux";
 import { useTypedSelector } from "../hooks/useTypeSelector";
 import { ActionType } from "../redux/actionTypes/actionTypes";
 import { useNavigate } from "react-router-dom";
 import { Service } from "./Root";
 
-const Jokes = () => {
+const Jokes = (): ReactElement => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const { newJoke, savedJokes, categories } = useTypedSelector(
     (state) => state.jokes
   );
-
-  // if there is no joke, disable save
-  // const [saveDisabled, disableSave] = useState(newJoke.id !== "");
 
   const [chosenCategory, setCategory] = useState("animal");
 

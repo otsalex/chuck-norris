@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/consistent-type-assertions */
 import { type IJoke } from "../../domain/IJoke";
 import { type Action, ActionType } from "../actionTypes/actionTypes";
 

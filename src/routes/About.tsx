@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/consistent-type-assertions */
 import { useTypedSelector } from "../hooks/useTypeSelector";
-import { useEffect, useState } from "react";
+import { type ReactElement, useEffect, useState } from "react";
 import { type IJoke } from "../domain/IJoke";
 
-const About = () => {
+const About = (): ReactElement => {
   const { newJoke } = useTypedSelector((state) => state.jokes);
 
   const [joke, updateJoke] = useState({} as IJoke);

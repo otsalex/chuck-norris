@@ -1,6 +1,7 @@
+import { type ReactElement } from "react";
 import { Link } from "react-router-dom";
 
-const ErrorPage = () => {
+const ErrorPage = (): ReactElement => {
   return (
     <div id="error-page">
       <h1>Oops!</h1>

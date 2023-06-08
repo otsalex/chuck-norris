@@ -1,8 +1,8 @@
-import { type ChangeEvent, useMemo, useState } from "react";
+import { type ChangeEvent, useMemo, useState, type ReactElement } from "react";
 import { useTypedSelector } from "../hooks/useTypeSelector";
 import { Link } from "react-router-dom";
 
-const Favourites = () => {
+const Favourites = (): ReactElement => {
   const { savedJokes, categories } = useTypedSelector((state) => state.jokes);
   const [chosenCategory, setCategory] = useState("all");
   const filtered = useMemo(() => {
@@ -11,7 +11,7 @@ const Favourites = () => {
     else return savedJokes.reverse();
   }, [chosenCategory, savedJokes]);
 
-  const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
+  const handleChange = (event: ChangeEvent<HTMLSelectElement>): void => {
     setCategory(event.currentTarget.value);
   };
 

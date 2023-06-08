@@ -1,6 +1,7 @@
+import { type ReactElement } from "react";
 import { Link } from "react-router-dom";
 
-const Header = () => {
+const Header = (): ReactElement => {
   return (
     <header className="header">
       <nav>
