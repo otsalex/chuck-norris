@@ -8,8 +8,8 @@ const Favourites = () => {
     const { savedJokes, categories } = useTypedSelector((state) => state.jokes);
     const [chosenCategory, setCategory] = useState("all");
     const filtered = useMemo(()=> {
-            if(chosenCategory !== "all") return savedJokes.filter(j => j.category === chosenCategory)
-            else return savedJokes
+            if(chosenCategory !== "all") return savedJokes.filter(j => j.category === chosenCategory).reverse();
+            else return savedJokes.reverse();
             }, 
         [chosenCategory, savedJokes]);
     
@@ -48,7 +48,7 @@ const Favourites = () => {
                 </tr>
                 :
 
-                filtered.reverse().map((joke, index) => 
+                filtered.map((joke, index) => 
                 <tr key={index}>
                     <td className="table-data-field">
                         {joke.value}
