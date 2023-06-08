@@ -14,7 +14,7 @@ const Jokes = () => {
     const { newJoke, savedJokes, categories } = useTypedSelector((state) => state.jokes);
 
     // if there is no joke, disable save
-    const [saveDisabled, disableSave] = useState(newJoke.id !== "");
+    //const [saveDisabled, disableSave] = useState(newJoke.id !== "");
 
     const [chosenCategory, setCategory] = useState("animal");
 
@@ -35,8 +35,6 @@ const Jokes = () => {
  
 
     const newJokeHandler = async (isRandom: boolean) => {
-        // enable save button
-        disableSave(false);
 
         // if requested random joke
         let response;
@@ -59,9 +57,6 @@ const Jokes = () => {
       
     const saveJoke = async() =>{
         
-        // disable save button
-        disableSave(true)
-
         if(newJoke === undefined) return;
 
         // avoid saving identical jokes
@@ -74,11 +69,17 @@ const Jokes = () => {
             payload: newJoke 
         });
       
-    }
+    };
+    const saveDisabled = () =>{
+        for (let joke of savedJokes) {
+            if(joke.id === newJoke.id) return true;
+        }
+        return false;
+    };
 
     const handleChange = (event: ChangeEvent<HTMLSelectElement>) =>{
         setCategory(event.target.value);
-    }
+    };
 
     return (
         <>
@@ -97,7 +98,7 @@ const Jokes = () => {
             
 
             <h3>{newJoke.value}</h3>
-            <button onClick={saveJoke} disabled={saveDisabled}  className="button-23">Save it for later</button>
+            <button onClick={saveJoke} disabled={saveDisabled()}  className="button-23">Save it for later</button>
             
         </div>
         </>
