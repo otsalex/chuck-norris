@@ -29,15 +29,9 @@ const EditJoke = () => {
     
 
     const [joke, setJoke] = useState(savedJokes.find(j => j.id === id) as IJoke || {} as IJoke)
-    const [chosenCategory, setCategory] = useState(joke.category);
+    //const [chosenCategory, setCategory] = useState(joke.category);
     
     const handleChange = (event: ChangeEvent<HTMLTextAreaElement> | ChangeEvent<HTMLSelectElement>) => {
-        
-        // deal with category changes
-        if(event.target.name === "category"){
-             setCategory(event.target.value);
-        }
-        // deal with text changes
         setJoke({...joke, [event.target.name]: event.target.value})
         
     }
@@ -72,7 +66,7 @@ const EditJoke = () => {
             <br />
 
             <select 
-                value={chosenCategory} 
+                value={joke.category} 
                 onChange={handleChange}
                 name='category'>
                     {categories.map((cat, index) => 
